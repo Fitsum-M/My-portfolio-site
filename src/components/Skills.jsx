@@ -70,7 +70,10 @@ const Skills = () => {
                   <Icon size={24} />
                 </div>
                 <div style={{ flexGrow: 1 }}>
-                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', fontWeight: 700, margin: 0, color: 'var(--text-main)' }}>{skill.name}</h4>
+                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.4rem' }}>{skill.name}</h4>
+                  <div style={{ width: '100%', height: 6, background: 'rgba(255,255,255,0.08)', borderRadius: 3, overflow: 'hidden' }}>
+                    <div style={{ height: '100%', width: `${skill.level}%`, background: skill.color, borderRadius: 3 }} />
+                  </div>
                 </div>
               </div>
             );

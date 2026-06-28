@@ -30,8 +30,8 @@ const About = () => {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }}>
             <div className="glass-card" style={{ padding: '2.2rem 1.5rem', textAlign: 'center' }}>
               <Award size={36} color="var(--neon-cyan)" style={{ margin: '0 auto 0.8rem auto' }} />
-              <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.8rem', fontWeight: 800, color: 'var(--neon-cyan)', lineHeight: 1.2 }}>Enterprise</div>
-              <div style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginTop: '0.4rem' }}>Production Projects</div>
+              <div style={{ fontFamily: 'var(--font-heading)', fontSize: '2.8rem', fontWeight: 800, color: 'var(--neon-cyan)', lineHeight: 1 }}>3+</div>
+              <div style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginTop: '0.4rem' }}>Production Systems</div>
             </div>
 
             <div className="glass-card" style={{ padding: '2.2rem 1.5rem', textAlign: 'center' }}>

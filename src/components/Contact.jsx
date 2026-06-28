@@ -29,7 +29,7 @@ const Contact = ({ onShowToast }) => {
               </div>
               <div>
                 <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-sub)' }}>Email Direct</label>
-                <a href="mailto:fitsummulugeta22@gmail.com" style={{ fontSize: '1.05rem', fontWeight: 600, color: 'var(--text-main)', textDecoration: 'none' }}>fitsummulugeta22@gmail.com</a>
+                <a href="mailto:fitsummulugeta22@gmail.com" style={{ fontSize: '1.05rem', fontWeight: 600, color: '#fff', textDecoration: 'none' }}>fitsummulugeta22@gmail.com</a>
               </div>
             </div>
 
@@ -39,7 +39,7 @@ const Contact = ({ onShowToast }) => {
               </div>
               <div>
                 <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-sub)' }}>Current Position</label>
-                <span style={{ fontSize: '1.05rem', fontWeight: 600, color: 'var(--text-main)' }}>Full-Stack Developer @ Excelloite</span>
+                <span style={{ fontSize: '1.05rem', fontWeight: 600, color: '#fff' }}>Full-Stack Developer @ Excelloite</span>
               </div>
             </div>
 
@@ -49,19 +49,18 @@ const Contact = ({ onShowToast }) => {
               </div>
               <div>
                 <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-sub)' }}>Primary Tech Stack</label>
-                <span style={{ fontSize: '1.05rem', fontWeight: 600, color: 'var(--text-main)' }}>Laravel, React, PHP, MySQL</span>
+                <span style={{ fontSize: '1.05rem', fontWeight: 600, color: '#fff' }}>Laravel, React, PHP, MySQL</span>
               </div>
             </div>
 
             <div>
               <label style={{ display: 'block', color: 'var(--text-sub)', fontSize: '0.85rem', marginBottom: '0.8rem' }}>Connect Socially</label>
-              {/* ONLY GitHub and LinkedIn icons */}
               <div style={{ display: 'flex', gap: '1rem' }}>
-                <a href="https://github.com/Fitsum-M" target="_blank" rel="noreferrer" style={{ width: 46, height: 46, borderRadius: 12, background: 'rgba(255, 255, 255, 0.05)', border: '1px solid var(--border-glass)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-main)', transition: '0.2s' }}>
-                  <Github size={22} />
+                <a href="https://github.com/Fitsum-M" target="_blank" rel="noreferrer" style={{ width: 44, height: 44, borderRadius: 12, background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--border-glass)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)', transition: '0.2s' }}>
+                  <Github size={20} />
                 </a>
-                <a href="https://www.linkedin.com/in/fitsum-mulugeta-417286395" target="_blank" rel="noreferrer" style={{ width: 46, height: 46, borderRadius: 12, background: 'rgba(255, 255, 255, 0.05)', border: '1px solid var(--border-glass)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-main)', transition: '0.2s' }}>
-                  <Linkedin size={22} />
+                <a href="https://www.linkedin.com/in/fitsum-mulugeta-417286395" target="_blank" rel="noreferrer" style={{ width: 44, height: 44, borderRadius: 12, background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--border-glass)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)', transition: '0.2s' }}>
+                  <Linkedin size={20} />
                 </a>
               </div>
             </div>
@@ -77,7 +76,7 @@ const Contact = ({ onShowToast }) => {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="e.g. Alex Johnson"
-                  style={{ width: '100%', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-glass)', borderRadius: 10, padding: '0.85rem 1.2rem', color: 'var(--text-main)', fontSize: '0.95rem', outline: 'none' }}
+                  style={{ width: '100%', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-glass)', borderRadius: 10, padding: '0.85rem 1.2rem', color: '#fff', fontSize: '0.95rem', outline: 'none' }}
                 />
               </div>
 
@@ -89,7 +88,7 @@ const Contact = ({ onShowToast }) => {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="e.g. alex@company.com"
-                  style={{ width: '100%', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-glass)', borderRadius: 10, padding: '0.85rem 1.2rem', color: 'var(--text-main)', fontSize: '0.95rem', outline: 'none' }}
+                  style={{ width: '100%', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-glass)', borderRadius: 10, padding: '0.85rem 1.2rem', color: '#fff', fontSize: '0.95rem', outline: 'none' }}
                 />
               </div>
 
@@ -101,7 +100,7 @@ const Contact = ({ onShowToast }) => {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Tell me about your project or inquiry..."
-                  style={{ width: '100%', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-glass)', borderRadius: 10, padding: '0.85rem 1.2rem', color: 'var(--text-main)', fontSize: '0.95rem', outline: 'none', resize: 'vertical' }}
+                  style={{ width: '100%', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-glass)', borderRadius: 10, padding: '0.85rem 1.2rem', color: '#fff', fontSize: '0.95rem', outline: 'none', resize: 'vertical' }}
                 />
               </div>
 

@@ -24,7 +24,7 @@ const Navbar = () => {
     }}>
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <a href="#hero" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontFamily: 'var(--font-heading)', fontSize: '1.5rem', fontWeight: 800, color: '#fff', textDecoration: 'none' }}>
-          <Code2 size={28} color="var(--neon-cyan)" /> Fitsum <span style={{ color: 'var(--neon-indigo)' }}>Mulugeta</span>
+          <Code2 size={28} color="var(--neon-cyan)" /> Fitsum<span style={{ color: 'var(--neon-indigo)' }}>.dev</span>
         </a>
 
         <nav className="desktop-nav" style={{ display: 'flex', gap: '2.2rem', alignItems: 'center', listStyle: 'none' }}>

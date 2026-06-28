@@ -1,16 +1,16 @@
-import React from 'react';
-import { ExternalLink, Info, Photos } from './Icons';
+import React, { useState } from 'react';
+import { ExternalLink, Info } from './Icons';
 
-const Projects = ({ onSelectProject, onOpenScreenshots }) => {
+const Projects = ({ onSelectProject }) => {
   const projects = [
     {
       id: 'bvsm',
       title: 'BVSM - Verification Management',
       badge: 'Live Enterprise System',
-      desc: 'Broker & Background Verification Management System featuring automated client invoicing, dynamic mailers, policy ledgers, and RFQ modules.',
+      desc: 'Broker & Background Verification Management System featuring automated client invoicing, dynamic mailers, and RFQ workflows.',
       img: '/assets/images/bvsm.jpg',
       tech: ['Laravel', 'MySQL', 'Blade', 'Azure', 'Tailwind'],
-      hasScreenshots: true,
+      hasLive: false,
       role: 'Full-Stack Developer at Excelloite — Built invoice generation engines, dynamic mailer dispatch configurations, and RFQ modules.'
     },
     {
@@ -20,7 +20,7 @@ const Projects = ({ onSelectProject, onOpenScreenshots }) => {
       desc: 'Donor & fundraiser management system powering campaign scheduling, donor KYC document verification, and tax receipt generation.',
       img: '/assets/images/anekaa.jpg',
       tech: ['Laravel', 'MySQL', 'Blade', 'Tailwind', 'Hostinger'],
-      hasScreenshots: false,
+      hasLive: false, // REMOVED LIVE LINK AS REQUESTED BY USER
       role: 'Full-Stack Developer — Architected donor database schemas, implemented secure KYC uploads, integrated automated campaign schedulers, and managed cloud server deployment.'
     },
     {
@@ -30,7 +30,7 @@ const Projects = ({ onSelectProject, onOpenScreenshots }) => {
       desc: 'Multi-company agricultural trade management system tracking order state lifecycles and domestic/export trade workflow interdependencies.',
       img: '/assets/images/adarsh.jpg',
       tech: ['Laravel', 'MySQL', 'REST APIs'],
-      hasScreenshots: false,
+      hasLive: false,
       role: 'Developer — Developed complex trade state machines, module interdependency validation algorithms, and optimized commodity queries.'
     }
   ];
@@ -72,30 +72,22 @@ const Projects = ({ onSelectProject, onOpenScreenshots }) => {
                     ))}
                   </div>
 
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', flexWrap: 'wrap' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                     <button
                       onClick={() => onSelectProject(proj)}
                       style={{
                         background: 'rgba(255,255,255,0.06)', border: '1px solid var(--border-glass)',
-                        color: 'var(--text-main)', padding: '0.65rem 1.2rem', borderRadius: 10, fontSize: '0.9rem', fontWeight: 600,
+                        color: '#fff', padding: '0.65rem 1.2rem', borderRadius: 10, fontSize: '0.9rem', fontWeight: 600,
                         cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.5rem', transition: 'var(--transition)'
                       }}
                     >
                       <Info size={16} /> View Details
                     </button>
 
-                    {proj.hasScreenshots && (
-                      <button
-                        onClick={onOpenScreenshots}
-                        style={{
-                          background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(99, 102, 241, 0.2))',
-                          border: '1px solid rgba(6, 182, 212, 0.4)',
-                          color: 'var(--neon-cyan)', padding: '0.65rem 1.2rem', borderRadius: 10, fontSize: '0.9rem', fontWeight: 600,
-                          cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.5rem', transition: 'var(--transition)'
-                        }}
-                      >
-                        <Photos size={16} /> Demo Pictures (5)
-                      </button>
+                    {proj.hasLive && (
+                      <a href={proj.liveUrl} target="_blank" rel="noreferrer" style={{ color: 'var(--neon-cyan)', textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.4rem', marginLeft: 'auto' }}>
+                        Live Demo <ExternalLink size={16} />
+                      </a>
                     )}
                   </div>
                 </div>
