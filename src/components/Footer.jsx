@@ -2,9 +2,9 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer style={{ borderTop: '1px solid var(--border-glass)', padding: '2.5rem 0', textAlign: 'center', color: 'var(--text-sub)', fontSize: '0.9rem', background: '#070a12' }}>
+    <footer className="site-footer">
       <div className="container">
-        <p>&copy; 2026 Fitsum. Full-Stack Developer @ Excelloite. Built with React & Modern Web Tech.</p>
+        <p>&copy; {new Date().getFullYear()} Fitsum Mulugeta. Full-Stack Developer at Excelloite.</p>
       </div>
     </footer>
   );
