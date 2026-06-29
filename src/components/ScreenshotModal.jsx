@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight, Photos } from './Icons';
+import { projectScreenshots } from '../data/projectScreenshots';
 
-const ScreenshotModal = ({ isOpen, onClose }) => {
+const ScreenshotModal = ({ isOpen, projectId, onClose }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const config = projectScreenshots[projectId];
+  const screenshots = config?.shots ?? [];
 
-  const screenshots = [
-    { src: '/assets/images/bvsm1.png', width: 1024, height: 480, title: 'Main Analytics Dashboard', desc: 'Financial year analytics, active leads, paid invoice revenue chart, and policy category breakdown.' },
-    { src: '/assets/images/bvsm2.png', width: 1024, height: 441, title: 'CRM Leads & Verification Portal', desc: 'Lead management filter table showing contact details, insurance policies, and client verification actions.' },
-    { src: '/assets/images/bvsm3.png', width: 1024, height: 488, title: 'Policy Ledger Management', desc: 'Comprehensive policy records listing customer details, insurance partners, and policy identifiers.' },
-    { src: '/assets/images/bvsm4.png', width: 1024, height: 491, title: 'Master System Configuration', desc: 'Enterprise reference catalog, product structure, LOB parameters, dynamic field mappings, and wizard forms.' },
-    { src: '/assets/images/bvsm5.png', width: 1024, height: 434, title: 'Finance & Invoices Engine', desc: 'Billing table displaying customer invoice numbers, dates, subtotal breakdowns, settlement statuses, and PDF generation.' }
-  ];
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [projectId, isOpen]);
 
-  if (!isOpen) return null;
+  if (!isOpen || !config) return null;
 
   const prevImage = () => setCurrentIndex((prev) => (prev === 0 ? screenshots.length - 1 : prev - 1));
   const nextImage = () => setCurrentIndex((prev) => (prev === screenshots.length - 1 ? 0 : prev + 1));
@@ -28,7 +27,7 @@ const ScreenshotModal = ({ isOpen, onClose }) => {
         <div className="screenshot-header">
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#fff', fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1.05rem' }}>
             <Photos size={20} color="var(--accent-secondary)" />
-            BVSM Live System
+            {config.title}
             <span style={{ fontSize: '0.78rem', color: 'var(--accent-secondary)', background: 'var(--accent-muted)', padding: '0.15rem 0.6rem', borderRadius: 50, marginLeft: '0.35rem', fontWeight: 600 }}>
               {currentIndex + 1} / {screenshots.length}
             </span>
@@ -45,8 +44,8 @@ const ScreenshotModal = ({ isOpen, onClose }) => {
           <img
             src={current.src}
             alt={current.title}
-            width={current.width}
-            height={current.height}
+            width={1024}
+            height={576}
             decoding="async"
             loading="eager"
           />

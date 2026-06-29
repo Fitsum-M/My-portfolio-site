@@ -43,6 +43,7 @@ function App() {
       />
       <ScreenshotModal
         isOpen={showScreenshots}
+        projectId={selectedProject?.id}
         onClose={() => setShowScreenshots(false)}
       />
       <Toast show={showToast} />

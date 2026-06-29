@@ -18,9 +18,9 @@ const Projects = ({ onSelectProject }) => {
       title: 'Anekaa Care Foundation CRM',
       badge: 'Private Client CRM',
       desc: 'Donor & fundraiser management system powering campaign scheduling, donor KYC document verification, and tax receipt generation.',
-      img: '/assets/images/anekaa.jpg',
+      img: '/assets/images/anekaa1.png',
       tech: ['Laravel', 'MySQL', 'Blade', 'Tailwind', 'Hostinger'],
-      hasScreenshots: false,
+      hasScreenshots: true,
       role: 'Full-Stack Developer — Architected donor database schemas, implemented secure KYC uploads, integrated automated campaign schedulers, and managed cloud server deployment.'
     },
     {
@@ -28,9 +28,9 @@ const Projects = ({ onSelectProject }) => {
       title: 'Adarsh Agritech ERP',
       badge: 'Enterprise Production',
       desc: 'Multi-company agricultural trade management system tracking order state lifecycles and domestic/export trade workflow interdependencies.',
-      img: '/assets/images/adarsh.jpg',
+      img: '/assets/images/adarsh1.png',
       tech: ['Laravel', 'MySQL', 'REST APIs'],
-      hasScreenshots: false,
+      hasScreenshots: true,
       role: 'Developer — Developed complex trade state machines, module interdependency validation algorithms, and optimized commodity queries.'
     }
   ];
