@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import { Mail, Briefcase, Code2, Send, Github, Linkedin } from './Icons';
 
+const CONTACT_EMAIL = 'fitsummulugeta22@gmail.com';
+
 const Contact = ({ onShowToast }) => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const subject = encodeURIComponent(`Portfolio Inquiry from ${formData.name}`);
-    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`);
-    window.location.href = `mailto:fitsummulugeta22@gmail.com?subject=${subject}&body=${body}`;
-    onShowToast();
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
+
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    onShowToast('Your email app is opening — click Send to deliver the message.');
     setFormData({ name: '', email: '', message: '' });
   };
 
@@ -32,8 +38,8 @@ const Contact = ({ onShowToast }) => {
               <div className="contact-icon"><Mail size={20} /></div>
               <div>
                 <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--text-sub)' }}>Email</label>
-                <a href="mailto:fitsummulugeta22@gmail.com" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#fff', textDecoration: 'none' }}>
-                  fitsummulugeta22@gmail.com
+                <a href={`mailto:${CONTACT_EMAIL}`} style={{ fontSize: '0.95rem', fontWeight: 600, color: '#fff', textDecoration: 'none' }}>
+                  {CONTACT_EMAIL}
                 </a>
               </div>
             </div>
@@ -77,6 +83,7 @@ const Contact = ({ onShowToast }) => {
                 <label>Your Name</label>
                 <input
                   type="text"
+                  name="name"
                   required
                   className="form-input"
                   value={formData.name}
@@ -89,6 +96,7 @@ const Contact = ({ onShowToast }) => {
                 <label>Your Email</label>
                 <input
                   type="email"
+                  name="email"
                   required
                   className="form-input"
                   value={formData.email}
@@ -100,6 +108,7 @@ const Contact = ({ onShowToast }) => {
               <div className="form-group">
                 <label>Message</label>
                 <textarea
+                  name="message"
                   required
                   rows={4}
                   className="form-input"

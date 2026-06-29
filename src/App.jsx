@@ -14,11 +14,11 @@ import Toast from './components/Toast';
 function App() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [showScreenshots, setShowScreenshots] = useState(false);
-  const [showToast, setShowToast] = useState(false);
+  const [toast, setToast] = useState({ show: false, message: '' });
 
-  const handleShowToast = () => {
-    setShowToast(true);
-    setTimeout(() => setShowToast(false), 4000);
+  const handleShowToast = (message) => {
+    setToast({ show: true, message });
+    setTimeout(() => setToast({ show: false, message: '' }), 5000);
   };
 
   const handleCloseModal = () => {
@@ -46,7 +46,7 @@ function App() {
         projectId={selectedProject?.id}
         onClose={() => setShowScreenshots(false)}
       />
-      <Toast show={showToast} />
+      <Toast show={toast.show} message={toast.message} />
     </div>
   );
 }

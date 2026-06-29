@@ -1,5 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Github, Linkedin, ArrowRight } from './Icons';
+import { Github, Linkedin, ArrowRight, Download } from './Icons';
+
+const RESUME_URL = '/Fitsum_Mulugeta_CV.pdf';
+const RESUME_FILENAME = 'Fitsum_Mulugeta_CV.pdf';
 
 const Hero = () => {
   const canvasRef = useRef(null);
@@ -119,6 +122,9 @@ const Hero = () => {
             <a href="#projects" className="btn-primary">
               View Work <ArrowRight size={17} />
             </a>
+            <a href={RESUME_URL} download={RESUME_FILENAME} className="btn-secondary">
+              Get Resume <Download size={17} />
+            </a>
             <a href="#contact" className="btn-secondary">Contact Me</a>
           </div>
 
@@ -132,24 +138,31 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="code-window">
+        <div className="profile-card">
           <div className="code-window-bar">
             <span className="code-dot" style={{ background: '#ff5f56' }} />
             <span className="code-dot" style={{ background: '#ffbd2e' }} />
             <span className="code-dot" style={{ background: '#27c93f' }} />
             <span style={{ marginLeft: 'auto', color: 'var(--text-sub)', fontFamily: 'var(--font-mono)', fontSize: '0.75rem' }}>profile.jsx</span>
           </div>
-          <div className="code-window-body">
-            <div><span style={{ color: '#c084fc' }}>import</span> React <span style={{ color: '#c084fc' }}>from</span> <span style={{ color: '#86efac' }}>'react'</span>;</div>
-            <br />
-            <div><span style={{ color: '#c084fc' }}>const</span> <span style={{ color: '#7dd3fc' }}>Developer</span> = () =&gt; (</div>
-            <div style={{ paddingLeft: '1.2rem' }}>&lt;<span style={{ color: '#c084fc' }}>Profile</span></div>
-            <div style={{ paddingLeft: '2.4rem' }}><span style={{ color: '#fbbf24' }}>name</span>=<span style={{ color: '#86efac' }}>"Fitsum"</span></div>
-            <div style={{ paddingLeft: '2.4rem' }}><span style={{ color: '#fbbf24' }}>role</span>=<span style={{ color: '#86efac' }}>"Full-Stack Developer"</span></div>
-            <div style={{ paddingLeft: '2.4rem' }}><span style={{ color: '#fbbf24' }}>company</span>=<span style={{ color: '#86efac' }}>"Excelloite"</span></div>
-            <div style={{ paddingLeft: '2.4rem' }}><span style={{ color: '#fbbf24' }}>stack</span>=&#123;[<span style={{ color: '#86efac' }}>'Laravel'</span>, <span style={{ color: '#86efac' }}>'React'</span>, <span style={{ color: '#86efac' }}>'PHP'</span>]&#125;</div>
-            <div style={{ paddingLeft: '1.2rem' }}>/&gt;</div>
-            <div>);</div>
+          <div className="profile-card-body">
+            <div className="profile-photo-wrap">
+              <img
+                src="/assets/images/fitsum.png"
+                alt="Fitsum Mulugeta"
+                className="profile-photo"
+              />
+            </div>
+            <h3 className="profile-card-name">
+              I am <span className="gradient-text">Fitsum Mulugeta</span>
+            </h3>
+            <p className="profile-card-role">Full-Stack Developer @ Excelloite</p>
+            <div className="profile-card-stack">
+              <span>Laravel</span>
+              <span>React</span>
+              <span>PHP</span>
+              <span>MySQL</span>
+            </div>
           </div>
         </div>
       </div>
