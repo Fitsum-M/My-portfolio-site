@@ -2,21 +2,48 @@ import React, { useState } from 'react';
 import { Mail, Briefcase, Code2, Send, Github, Linkedin } from './Icons';
 
 const CONTACT_EMAIL = 'fitsummulugeta22@gmail.com';
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 
 const Contact = ({ onShowToast }) => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitting(true);
 
-    const subject = encodeURIComponent(`Portfolio Inquiry from ${formData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    );
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `Portfolio Inquiry from ${formData.name}`,
+          from_name: 'Portfolio — Fitsum Mulugeta',
+          replyto: formData.email,
+          botcheck: false,
+        }),
+      });
 
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-    onShowToast('Your email app is opening — click Send to deliver the message.');
-    setFormData({ name: '', email: '', message: '' });
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Send failed');
+      }
+
+      onShowToast('Message sent successfully! I will get back to you soon.');
+      setFormData({ name: '', email: '', message: '' });
+    } catch {
+      onShowToast(`Could not send message. Please email me directly at ${CONTACT_EMAIL}`);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -89,6 +116,7 @@ const Contact = ({ onShowToast }) => {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="Your name"
+                  disabled={submitting}
                 />
               </div>
 
@@ -102,6 +130,7 @@ const Contact = ({ onShowToast }) => {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="you@company.com"
+                  disabled={submitting}
                 />
               </div>
 
@@ -116,11 +145,17 @@ const Contact = ({ onShowToast }) => {
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Tell me about your project or inquiry..."
                   style={{ resize: 'vertical' }}
+                  disabled={submitting}
                 />
               </div>
 
-              <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-                Send Message <Send size={17} />
+              <button
+                type="submit"
+                className="btn-primary"
+                style={{ width: '100%', justifyContent: 'center', opacity: submitting ? 0.7 : 1 }}
+                disabled={submitting}
+              >
+                {submitting ? 'Sending...' : 'Send Message'} {!submitting && <Send size={17} />}
               </button>
             </form>
           </div>
